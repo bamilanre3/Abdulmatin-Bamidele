@@ -929,7 +929,14 @@ app.get("/api/admin/stats", (req, res) => {
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { 
+        middlewareMode: true,
+        hmr: false, // Explicitly disable HMR in development to prevent duplicate WebSocket listeners
+        watch: {
+          usePolling: true,
+          interval: 1000,
+        }
+      },
       appType: "spa",
     });
     app.use(vite.middlewares);
