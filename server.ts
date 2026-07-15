@@ -927,7 +927,8 @@ app.get("/api/admin/stats", (req, res) => {
 
 // MOUNT VITE DEVELOPMENT MIDDLEWARE OR SERVE STATIC FILES
 async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
+  const isProduction = process.env.NODE_ENV === "production" || !fs.existsSync(path.join(process.cwd(), "server.ts"));
+  if (!isProduction) {
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
