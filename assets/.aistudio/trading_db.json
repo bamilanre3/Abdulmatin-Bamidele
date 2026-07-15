@@ -1,0 +1,430 @@
+{
+  "users": [
+    {
+      "id": "usr_student",
+      "name": "Alex Trader",
+      "email": "student@bashonair.com",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      "bio": "Aspiring Forex and Crypto trader focused on Smart Money Concepts.",
+      "joinedDate": "2026-01-15T08:00:00Z"
+    },
+    {
+      "id": "usr_admin",
+      "name": "Coach Bash",
+      "email": "admin@bashonair.com",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      "bio": "Chief Trading Mentor at Bash On Air. 10+ years of institutional trading experience.",
+      "joinedDate": "2025-06-01T08:00:00Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course_forex_beginners",
+      "title": "Complete Forex Beginner's Masterclass",
+      "description": "Learn the absolute fundamentals of the foreign exchange market. Understand currency pairs, market sessions, candlestick anatomy, brokers, leverage, and basic technical analysis.",
+      "instructor": "Coach Bash",
+      "lessons": [
+        {
+          "id": "l1",
+          "title": "Introduction to Forex & Market Structures",
+          "duration": "12:15",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l2",
+          "title": "Understanding Pips, Lots, and Leverage",
+          "duration": "18:40",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l3",
+          "title": "Setting Up MetaTrader & Charting",
+          "duration": "15:20",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l4",
+          "title": "Basic Support and Resistance Theory",
+          "duration": "22:10",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l5",
+          "title": "Your First Trading Strategy Demo",
+          "duration": "25:35",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        }
+      ],
+      "duration": "1h 34m",
+      "level": "Beginner",
+      "rating": 4.8,
+      "price": 150000,
+      "category": "Forex",
+      "enrolledCount": 1420
+    },
+    {
+      "id": "course_smc_pro",
+      "title": "Smart Money Concepts & Order Blocks",
+      "description": "Dive deep into how commercial institutions trade. Understand market structure shifts, liquidity sweeps, fair value gaps, mitigation zones, and high-probability order blocks.",
+      "instructor": "Coach Bash",
+      "lessons": [
+        {
+          "id": "l1_smc",
+          "title": "Market Structure: MS, BOS, and CHoCH",
+          "duration": "25:10",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l2_smc",
+          "title": "Identifying Valid Order Blocks & Breakers",
+          "duration": "20:45",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l3_smc",
+          "title": "Fair Value Gaps (FVG) & Liquidity Pools",
+          "duration": "30:15",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l4_smc",
+          "title": "Premium vs Discount Pricing Matrix",
+          "duration": "18:50",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l5_smc",
+          "title": "SMC High-Winrate Setup Case Studies",
+          "duration": "35:12",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        }
+      ],
+      "duration": "2h 10m",
+      "level": "Advanced",
+      "rating": 4.95,
+      "price": 350000,
+      "category": "Smart Money Concepts",
+      "enrolledCount": 890
+    },
+    {
+      "id": "course_crypto_defi",
+      "title": "Crypto Trading, DeFi & On-Chain Analysis",
+      "description": "Navigate the highly volatile cryptocurrency markets. Master spot trading, leverage futures, decipher on-chain metrics, track smart wallets, and structure long-term growth portfolios.",
+      "instructor": "Coach Air",
+      "lessons": [
+        {
+          "id": "l1_crypto",
+          "title": "The Bitcoin Cycle & Halving Economics",
+          "duration": "15:40",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l2_crypto",
+          "title": "Trading Futures & Perps Responsibly",
+          "duration": "22:15",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l3_crypto",
+          "title": "On-Chain Tools: Glassnode & Etherscan",
+          "duration": "28:30",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l4_crypto",
+          "title": "DeFi Yield Farming & Risk Management",
+          "duration": "20:10",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        }
+      ],
+      "duration": "1h 26m",
+      "level": "Intermediate",
+      "rating": 4.7,
+      "price": 225000,
+      "category": "Crypto",
+      "enrolledCount": 1120
+    },
+    {
+      "id": "course_risk_management",
+      "title": "Advanced Risk & Professional Capital Management",
+      "description": "The most important course you will ever take. Learn mathematical sizing models, risk-to-reward metrics, portfolio preservation rules, drawdowns survival, and psychological trading bias hacks.",
+      "instructor": "Coach Air",
+      "lessons": [
+        {
+          "id": "l1_risk",
+          "title": "The Math Behind the 1% Sizing Rule",
+          "duration": "14:20",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l2_risk",
+          "title": "Understanding Expectancy & R-Multiple",
+          "duration": "19:15",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l3_risk",
+          "title": "How to Keep Your Account Funding",
+          "duration": "25:40",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        },
+        {
+          "id": "l4_risk",
+          "title": "Trading Journal: The Ultimate Catalyst",
+          "duration": "16:10",
+          "videoUrl": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "isLocked": false
+        }
+      ],
+      "duration": "1h 15m",
+      "level": "Intermediate",
+      "rating": 4.9,
+      "price": 180000,
+      "category": "Risk Management",
+      "enrolledCount": 2150
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "enr_1",
+      "userId": "usr_student",
+      "courseId": "course_forex_beginners",
+      "progress": 60,
+      "completedLessons": [
+        "l1",
+        "l2",
+        "l3"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "id": "sig_1",
+      "pair": "EUR/USD",
+      "entry": 1.085,
+      "stopLoss": 1.0815,
+      "takeProfit": 1.0955,
+      "risk": "Medium",
+      "direction": "BUY",
+      "status": "ACTIVE",
+      "winRate": 88,
+      "timestamp": "2026-07-13T07:15:00Z",
+      "comment": "Sweep of London session lows completed. Targetting the 4H Fair Value Gap."
+    },
+    {
+      "id": "sig_2",
+      "pair": "BTC/USD",
+      "entry": 89650,
+      "stopLoss": 90200,
+      "takeProfit": 87500,
+      "risk": "High",
+      "direction": "SELL",
+      "status": "HIT TP",
+      "winRate": 92,
+      "timestamp": "2026-07-12T14:20:00Z",
+      "comment": "Double top at psychological 90k resistance level on 1H chart with institutional divergence."
+    },
+    {
+      "id": "sig_3",
+      "pair": "XAU/USD (Gold)",
+      "entry": 2345.5,
+      "stopLoss": 2351,
+      "takeProfit": 2325,
+      "risk": "Medium",
+      "direction": "SELL",
+      "status": "ACTIVE",
+      "winRate": 84,
+      "timestamp": "2026-07-13T06:30:00Z",
+      "comment": "Testing the hourly supply zone. Expecting bearish reversal targeting Daily Order block."
+    },
+    {
+      "id": "sig_4",
+      "pair": "US30",
+      "entry": 39150,
+      "stopLoss": 39020,
+      "takeProfit": 39450,
+      "risk": "Medium",
+      "direction": "BUY",
+      "status": "CLOSED",
+      "winRate": 85,
+      "timestamp": "2026-07-11T12:00:00Z",
+      "comment": "Broke above consolidation. Secured +300 pips. Manual exit recommended."
+    }
+  ],
+  "mentorshipSlots": [
+    {
+      "id": "slot_1",
+      "mentorName": "Coach Bash",
+      "date": "2026-07-15",
+      "time": "10:00 AM UTC",
+      "status": "available",
+      "topic": "SMC structure review"
+    },
+    {
+      "id": "slot_2",
+      "mentorName": "Coach Bash",
+      "date": "2026-07-15",
+      "time": "2:00 PM UTC",
+      "status": "booked",
+      "topic": "Forex Basics 1-on-1"
+    },
+    {
+      "id": "slot_3",
+      "mentorName": "Coach Air",
+      "date": "2026-07-16",
+      "time": "11:00 AM UTC",
+      "status": "available",
+      "topic": "Crypto Futures Risk Sizing"
+    },
+    {
+      "id": "slot_4",
+      "mentorName": "Coach Air",
+      "date": "2026-07-16",
+      "time": "4:00 PM UTC",
+      "status": "available",
+      "topic": "Trading Psychology Audit"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "blog_1",
+      "title": "The Psychology of a Winning Trader",
+      "excerpt": "Why is it that two traders with the exact same blueprint can have completely opposite results? Let's dive deep into risk aversion, greed, and trading discipline.",
+      "content": "The hard truth of professional trading is that your emotional state will make or break your account balance. You can have a 90% accurate system, but if you panic during drawdowns or double down on losing positions out of revenge, your account will bleed to zero.\n\n### 1. The Revenge Trading Trap\nWhen you take a loss, your brain registers it as a personal attack. The automatic reaction is to strike back—by opening a larger size trade without setup confirmation. This is called revenge trading. \nTo beat this:\n- Accept that losses are a regular operating cost of running a business.\n- Walk away from your computer screens for at least 1 hour after any consecutive losses.\n\n### 2. FOMO (Fear Of Missing Out)\nSeeing a currency pair breakout and buying the top because you feel left behind is the easiest way to buy institutional supply. Professional traders wait for pullbacks into high-probability demand blocks. If the market goes without them, they happily let it go. There are always more trades.\n\n### 3. Master the R-Multiple\nTreat trading like statistical risk rather than a get-rich-quick gamble. Focus strictly on taking setups that provide at least a 1:3 Risk-to-Reward ratio. That way, you only need to be right 30% of the time to remain fully profitable over the long term.",
+      "author": "Coach Bash",
+      "date": "2026-07-10T10:00:00Z",
+      "category": "Trading Psychology",
+      "image": "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600",
+      "views": 520,
+      "likes": 42,
+      "comments": [
+        {
+          "id": "c1",
+          "author": "Sarah Jenkins",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
+          "text": "This article saved my account today. I was about to revenge trade GBPUSD!",
+          "date": "2026-07-10T12:40:00Z"
+        }
+      ]
+    },
+    {
+      "id": "blog_2",
+      "title": "Trading Position Sizing: How to Survive High Volatility",
+      "excerpt": "If you don't know the exact dollar risk of your position before pressing buy or sell, you are gambling. Master the mathematical sizing formula used by hedge fund managers.",
+      "content": "Let's break down the exact mathematical formula that keeps institutional desks safe during high volatility news events like the NFP, CPI, and FOMC speeches.\n\n### The Professional Sizing Formula:\n`Position Size = (Account Balance * Risk Percentage) / (Stop Loss in Pips * Pip Value)`\n\nFor example:\n- Account Balance: $10,000\n- Maximum Risk: 1% ($100)\n- Stop Loss: 20 Pips on EURUSD\n- Pip Value: $10 per standard lot\n\nWith this formula, your standard lot sizing will be exactly `100 / (20 * 10) = 0.5 Lots`. \nThis guarantees that even if your trade is invalidated and hits your stop loss, your capital loss is strictly capped at $100.\n\nNever adjust your stop loss to fit your lot size; always adjust your lot size to fit your stop loss.",
+      "author": "Coach Air",
+      "date": "2026-07-08T09:15:00Z",
+      "category": "Forex Tips",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600",
+      "views": 310,
+      "likes": 28,
+      "comments": []
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq_1",
+      "question": "Is Bash On Air a trading broker or exchange?",
+      "answer": "No. Bash On Air is strictly an educational platform. We do not accept deposits for trading, execute trades on your behalf, or act as a brokerage. We provide signals, mentorship, and courses to help you trade independently.",
+      "category": "General"
+    },
+    {
+      "id": "faq_2",
+      "question": "How do I receive the Real-Time VIP Trading Signals?",
+      "answer": "Signals are instantly pushed to the Signals section of your Student Dashboard. We also provide a real-time webhook sync to our private VIP Discord and Telegram alerts channels so you never miss an entry.",
+      "category": "Signals"
+    },
+    {
+      "id": "faq_3",
+      "question": "What is your refund policy for Course Enrollments & VIP Subscriptions?",
+      "answer": "We offer a 14-day money-back guarantee if you haven't watched more than 20% of the course. VIP Signals subscriptions can be cancelled at any time to avoid renewal billing.",
+      "category": "Payments"
+    },
+    {
+      "id": "faq_4",
+      "question": "How do live interactive trading classes work?",
+      "answer": "Live sessions occur inside the Academy tab. Users can click 'Join Meeting' to open our live embedded broadcast where they can interact directly with mentors in real-time, ask questions, and follow live charts.",
+      "category": "Courses"
+    }
+  ],
+  "journalEntries": [
+    {
+      "id": "j_1",
+      "date": "2026-07-10T15:30:00Z",
+      "pair": "EUR/USD",
+      "direction": "BUY",
+      "entry": 1.082,
+      "exit": 1.0865,
+      "size": 0.5,
+      "profit": 225,
+      "notes": "Followed the 15m order block. High probability setup. Managed risk well."
+    },
+    {
+      "id": "j_2",
+      "date": "2026-07-12T10:15:00Z",
+      "pair": "BTC/USD",
+      "direction": "SELL",
+      "entry": 90100,
+      "exit": 90600,
+      "size": 0.1,
+      "profit": -50,
+      "notes": "Stop loss swept before reversing. Need to place stop loss above liquidity level next time."
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay_1",
+      "userId": "usr_student",
+      "amount": 99,
+      "currency": "USD",
+      "status": "succeeded",
+      "plan": "Complete Forex Beginner's Masterclass",
+      "date": "2026-07-10T12:00:00Z",
+      "invoiceId": "INV-8927"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n_1",
+      "title": "New EUR/USD Signal Alert",
+      "message": "A new Buy Setup for EUR/USD has been posted with entry 1.0850. Review targets now.",
+      "date": "2026-07-13T07:16:00Z",
+      "type": "signal",
+      "read": false
+    },
+    {
+      "id": "n_2",
+      "title": "Live SMC Trading Webinar",
+      "message": "Webinar 'Smart Money Concepts AMA' is starting in 30 minutes. Secure your seat.",
+      "date": "2026-07-13T08:00:00Z",
+      "type": "live",
+      "read": true
+    }
+  ],
+  "tradingNotes": [
+    {
+      "id": "note_1",
+      "title": "SMC Entry Checklist",
+      "content": "1. 4H Trend direction check\n2. 15m Liquidity grab\n3. CHoCH structure shift confirmed\n4. Premium/Discount validation\n5. Limit orders set on 50% FVG zone."
+    }
+  ]
+}

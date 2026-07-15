@@ -1,0 +1,243 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum SignalDirection {
+  BUY
+  SELL
+}
+
+enum SignalStatus {
+  ACTIVE
+  HIT_TP
+  HIT_SL
+  CLOSED
+}
+
+enum MentorshipStatus {
+  AVAILABLE
+  BOOKED
+}
+
+enum BlogCategory {
+  MARKET_ANALYSIS
+  TRADING_PSYCHOLOGY
+  FOREX_TIPS
+  CRYPTO_ANALYSIS
+}
+
+enum FAQCategory {
+  GENERAL
+  COURSES
+  SIGNALS
+  PAYMENTS
+  MENTORSHIP
+}
+
+enum NotificationType {
+  SIGNAL
+  COURSE
+  LIVE
+  PAYMENT
+  GENERAL
+}
+
+model User {
+  id           String       @id @default(uuid())
+  email        String       @unique
+  name         String
+  role         Role         @default(STUDENT)
+  avatar       String?
+  bio          String?
+  joinedDate   DateTime     @default(now())
+  
+  // Relationships
+  enrollments  Enrollment[]
+  bookings     Booking[]
+  journal      JournalEntry[]
+  payments     Payment[]
+  notes        TradingNote[]
+}
+
+model Course {
+  id            String       @id @default(uuid())
+  title         String
+  description   String
+  instructor    String
+  duration      String
+  level         String       // Beginner, Intermediate, Advanced
+  rating        Float        @default(4.5)
+  price         Float
+  category      String       // Forex, Crypto, Indices, Risk Management, etc.
+  enrolledCount Int          @default(0)
+  
+  // Relationships
+  lessons       Lesson[]
+  enrollments   Enrollment[]
+}
+
+model Lesson {
+  id         String   @id @default(uuid())
+  courseId   String
+  title      String
+  duration   String
+  videoUrl   String
+  isLocked   Boolean  @default(true)
+  orderIndex Int
+  
+  // Relationships
+  course     Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  progresses LessonProgress[]
+}
+
+model Enrollment {
+  id         String   @id @default(uuid())
+  userId     String
+  courseId   String
+  progress   Int      @default(0) // percentage 0 to 100
+  enrolledAt DateTime @default(now())
+  
+  // Relationships
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course     Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, courseId])
+}
+
+model LessonProgress {
+  id         String   @id @default(uuid())
+  enrollmentId String
+  lessonId   String
+  completed  Boolean  @default(false)
+  updatedAt  DateTime @updatedAt
+  
+  // Relationships
+  lesson     Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+}
+
+model TradingSignal {
+  id         String          @id @default(uuid())
+  pair       String
+  entry      Float
+  stopLoss   Float
+  takeProfit Float
+  risk       RiskLevel       @default(MEDIUM)
+  direction  SignalDirection
+  status     SignalStatus    @default(ACTIVE)
+  winRate    Float           @default(85.0)
+  timestamp  DateTime        @default(now())
+  comment    String?
+}
+
+model MentorshipSlot {
+  id         String           @id @default(uuid())
+  mentorName String
+  date       String
+  time       String
+  status     MentorshipStatus @default(AVAILABLE)
+  topic      String
+  bookings   Booking[]
+}
+
+model Booking {
+  id               String         @id @default(uuid())
+  userId           String
+  mentorshipSlotId String
+  bookedAt         DateTime       @default(now())
+  
+  // Relationships
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  slot             MentorshipSlot @relation(fields: [mentorshipSlotId], references: [id], onDelete: Cascade)
+}
+
+model BlogPost {
+  id        String       @id @default(uuid())
+  title     String
+  excerpt   String
+  content   String
+  author    String
+  date      DateTime     @default(now())
+  category  BlogCategory
+  image     String
+  views     Int          @default(0)
+  likes     Int          @default(0)
+  comments  Comment[]
+}
+
+model Comment {
+  id         String   @id @default(uuid())
+  blogPostId String
+  author     String
+  avatar     String
+  text       String
+  date       DateTime @default(now())
+  
+  // Relationships
+  post       BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
+}
+
+model FAQItem {
+  id       String      @id @default(uuid())
+  question String
+  answer   String
+  category FAQCategory
+}
+
+model JournalEntry {
+  id        String          @id @default(uuid())
+  userId    String
+  date      DateTime        @default(now())
+  pair      String
+  direction SignalDirection
+  entry     Float
+  exit      Float
+  size      Float
+  profit    Float
+  notes     String
+  
+  // Relationships
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  userId    String
+  amount    Float
+  currency  String   @default("USD")
+  status    String   @default("succeeded")
+  plan      String   // Course Enrollment, Pro Subscription, VIP signals, etc.
+  date      DateTime @default(now())
+  invoiceId String   @unique
+  
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model TradingNote {
+  id        String   @id @default(uuid())
+  userId    String
+  title     String
+  content   String
+  updatedAt DateTime @updatedAt
+  
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
