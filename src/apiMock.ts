@@ -5,6 +5,32 @@
 
 import { UserRole } from "./types";
 
+const memoryStorage: Record<string, string> = {};
+
+const safeLocalStorage = {
+  getItem(key: string): string | null {
+    try {
+      return localStorage.getItem(key);
+    } catch (e) {
+      return memoryStorage[key] || null;
+    }
+  },
+  setItem(key: string, value: string): void {
+    try {
+      localStorage.setItem(key, value);
+    } catch (e) {
+      memoryStorage[key] = value;
+    }
+  },
+  removeItem(key: string): void {
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+      delete memoryStorage[key];
+    }
+  }
+};
+
 const IS_STATIC_HOST =
   window.location.hostname.includes("github.io") ||
   window.location.hostname.includes("vercel.app") ||
@@ -15,7 +41,7 @@ const IS_STATIC_HOST =
 const FORCE_MOCK =
   window.location.search.includes("mock=true") ||
   window.location.hash.includes("mock") ||
-  localStorage.getItem("force_mock") === "true";
+  safeLocalStorage.getItem("force_mock") === "true";
 
 // Seed Database
 const initialDB = {
@@ -232,9 +258,9 @@ const initialDB = {
 
 // Helper to load db from localStorage
 function getLocalDB() {
-  const dbStr = localStorage.getItem("trading_db");
+  const dbStr = safeLocalStorage.getItem("trading_db");
   if (!dbStr) {
-    localStorage.setItem("trading_db", JSON.stringify(initialDB));
+    safeLocalStorage.setItem("trading_db", JSON.stringify(initialDB));
     return initialDB;
   }
   try {
@@ -248,26 +274,26 @@ function getLocalDB() {
       }
     }
     if (changed) {
-      localStorage.setItem("trading_db", JSON.stringify(db));
+      safeLocalStorage.setItem("trading_db", JSON.stringify(db));
     }
     return db;
   } catch (e) {
-    localStorage.setItem("trading_db", JSON.stringify(initialDB));
+    safeLocalStorage.setItem("trading_db", JSON.stringify(initialDB));
     return initialDB;
   }
 }
 
 // Helper to save db to localStorage
 function saveLocalDB(db: any) {
-  localStorage.setItem("trading_db", JSON.stringify(db));
+  safeLocalStorage.setItem("trading_db", JSON.stringify(db));
 }
 
 // Track active session user ID in localStorage
 function getSessionUserId() {
-  let userId = localStorage.getItem("session_user_id");
+  let userId = safeLocalStorage.getItem("session_user_id");
   if (!userId) {
     userId = "usr_student"; // default session user
-    localStorage.setItem("session_user_id", userId);
+    safeLocalStorage.setItem("session_user_id", userId);
   }
   return userId;
 }
@@ -323,7 +349,7 @@ if (IS_STATIC_HOST || FORCE_MOCK) {
     }
 
     if (pathname === "/api/auth/logout") {
-      localStorage.setItem("session_user_id", "");
+      safeLocalStorage.setItem("session_user_id", "");
       return jsonResponse({ success: true });
     }
 
@@ -347,7 +373,7 @@ if (IS_STATIC_HOST || FORCE_MOCK) {
       };
       db.users.push(newUser);
       saveLocalDB(db);
-      localStorage.setItem("session_user_id", newUser.id);
+      safeLocalStorage.setItem("session_user_id", newUser.id);
       return jsonResponse({ user: newUser, token: `mock_session_${newUser.id}` }, 201);
     }
 
@@ -360,7 +386,7 @@ if (IS_STATIC_HOST || FORCE_MOCK) {
       if (!user) {
         return errorResponse("User with this email does not exist.", 404);
       }
-      localStorage.setItem("session_user_id", user.id);
+      safeLocalStorage.setItem("session_user_id", user.id);
       return jsonResponse({ user, token: `mock_session_${user.id}` });
     }
 
