@@ -14,7 +14,7 @@ import { UserRole } from "./src/types.js";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 app.use(express.json());
 
@@ -46,7 +46,11 @@ const DB_FILE = path.join(process.cwd(), "assets", ".aistudio", "trading_db.json
 // Ensure parent folder exists
 const dbDir = path.dirname(DB_FILE);
 if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+  try {
+    fs.mkdirSync(dbDir, { recursive: true });
+  } catch (e) {
+    console.warn(`Warning: Could not create database directory at ${dbDir}. Using in-memory database only.`);
+  }
 }
 
 // Default Seed Data
@@ -927,7 +931,7 @@ app.get("/api/admin/stats", (req, res) => {
 
 // MOUNT VITE DEVELOPMENT MIDDLEWARE OR SERVE STATIC FILES
 async function startServer() {
-  const isProduction = process.env.NODE_ENV === "production" || !fs.existsSync(path.join(process.cwd(), "server.ts"));
+  const isProduction = process.env.NODE_ENV === "production";
   if (!isProduction) {
     const vite = await createViteServer({
       server: { 
@@ -943,6 +947,9 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
+    if (!fs.existsSync(distPath)) {
+      throw new Error(`Production mode requires 'dist' folder. Run 'npm run build' first.`);
+    }
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(path.join(distPath, "index.html"));
